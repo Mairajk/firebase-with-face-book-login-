@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: gainsboro;
+}
+
+.postCard {
+    width: 50%;
+    margin: 20px auto;
+    background-color: whitesmoke;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 20px;
+}
+
+.time {
+    font-size: 12px;
+    color: gray;
+    text-align: left;
+    padding: 5px 0px;
+}
+
+.postHead {
+    margin: 10px 0px;
+}
+
+.postFooter {
+    display: flex;
+    /* justify-content: space-between; */
+    width: 100%;
+
+}
+
+.postFooter>button {
+    margin: 10px 10px 5px;
+    width: 70px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 0px;
+    background-color: lightseagreen;
+    font-size: 15px;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+.postingDiv {
+    /* margin: 10px 0px; */
+    position: sticky;
+    top: 100px;
+    width: 100%;
+    height: fit-content;
+    z-index: 1;
+    padding: 5px 0px;
+    /* background-color: whitesmoke; */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.postingForm {
+    height: 100%;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.postingDiv textarea {
+    /* margin: 10px auto; */
+    font-size: 18px;
+    background-color: whitesmoke;
+    width: 100%;
+    height: 150px;
+    padding: 20px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0px 0px 20px 5px gray;
+    outline: none;
+}
+
+.inputArea {
+    margin: 10px auto;
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.postPic {
+    padding: 10px 0px;
+    position: absolute;
+    display: flex;
+    justify-content: right;
+    border-radius: 10px;
+    outline: none;
+    color: aqua;
+    /* all: unset; */
+    /* width: 500px; */
+    /* z-index: 1; */
+    /* right: 0px; */
+}
+
+.postPic input#file-upload-button {
+    display: none;
+    background-color: aqua;
+}
+
+.postingDiv .btnDiv {
+    width: 50%;
+    margin: 5px auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.postDiv {
+    padding: 30px 0px;
+}
+
+.postingBtn {
+    width: 70px;
+    padding: 10px;
+    margin: 0px 50px;
+    border-radius: 10px;
+    border: 0px;
+    background-color: lightseagreen;
+    font-size: 15px;
+    font-weight: bold;
+    color: whitesmoke;
+    backdrop-filter: blur(10px);
+}
+
+.shareBtn {
+    width: 70px;
+    padding: 10px;
+    margin: 10px 20px;
+    border-radius: 10px;
+    border: 0px;
+    background-color: lightseagreen;
+    font-size: 15px;
+    font-weight: bold;
+    color: whitesmoke;
+
+}
+
+.postUpdateBtn {
+    width: 70px;
+    padding: 10px;
+    margin: 10px 20px;
+    border-radius: 10px;
+    border: 0px;
+    background-color: lightseagreen;
+    font-size: 15px;
+    font-weight: bold;
+    color: whitesmoke;
+
+}
+
+button:hover {
+    width: 80px;
+    padding: 10px;
+    font-size: 18px;
+    box-shadow: 0px 0px 10px 10px lightseagreen;
+    background-color: white;
+    color: lightseagreen;
+    /* background: linear-gradient( to right , white ,lightseagreen); */
+    transition: 1s ease;
+}
+
+.postHead {
+    width: 100%;
+}
+
+.postTitle {
+    width: 90%;
+    font-weight: 500;
+    font-size: 25px;
+    margin: 10px auto;
+    height: fit-content;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.postUpdateForm {
+    width: 100%;
+}
+
+.postCard textarea {
+    margin: 10px auto;
+    font-size: 18px;
+    background-color: whitesmoke;
+    width: 50%;
+    min-width: 30%;
+    max-width: 70%;
+    max-height: 450px;
+    min-height: 100px;
+    height: auto;
+    padding: 15px 20px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0px 0px 20px 5px gray;
+    outline: none;
+
+}
+
+.postImage {
+    width: 100%;
+}
+
+nav {
+    margin: 0px 40px;
+    padding: 20px 0px;
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+
+}
+
+nav li {
+    margin: 5px 10px;
+    list-style-type: none;
+}
+
+nav li a {
+    text-decoration: none;
+    font-size: 22px;
+    color: lightseagreen;
+    padding: 2px 10px;
+    text-align: center;
+}
+
+nav li a:is(:hover, :focus) {
+    border-bottom: 2px solid lightseagreen;
+    /* color: black; */
+}
+
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 10px 30px; */
+    background-color: whitesmoke;
+    position: sticky;
+    top: 0px;
+}
+
+.header h1 {
+    margin: 0px 50px;
+}
