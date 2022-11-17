@@ -6,7 +6,7 @@ import { useState } from "react";
 
 import { getAuth, signInWithEmailAndPassword, FacebookAuthProvider, signInWithPopup } from "firebase/auth";
 
-import {Button, TextField} from '@mui/material';
+import { Button, TextField } from '@mui/material';
 
 
 
@@ -137,7 +137,7 @@ const Login = (props) => {
                         type="email"
                         id="outlined-email"
                         label="Email"
-                       value={formik.values.email}
+                        value={formik.values.email}
                         placeholder="Enter your Email :"
                         onChange={formik.handleChange}
                     />
