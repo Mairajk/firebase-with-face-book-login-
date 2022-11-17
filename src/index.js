@@ -9,13 +9,15 @@ import { BrowserRouter } from 'react-router-dom';
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
 
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCy-bCTcJUh788D520gHwvGfSAptX70Oqs",
-  authDomain: "login-with-face-book.firebaseapp.com",
-  projectId: "login-with-face-book",
-  storageBucket: "login-with-face-book.appspot.com",
-  messagingSenderId: "1048714268782",
-  appId: "1:1048714268782:web:ea282f5f173c8eb0a8167f"
+  apiKey: "AIzaSyCDv5SgSyihVnIvACq_iC8qbjvI4g0q7JU",
+  authDomain: "social-login-auth-6e9d4.firebaseapp.com",
+  projectId: "social-login-auth-6e9d4",
+  storageBucket: "social-login-auth-6e9d4.appspot.com",
+  messagingSenderId: "803369796037",
+  appId: "1:803369796037:web:12f5c74aa46833b643cbac"
 };
 
 const app = initializeApp(firebaseConfig);

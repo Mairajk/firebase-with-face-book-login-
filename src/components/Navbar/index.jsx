@@ -6,7 +6,7 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 
 import Home from "../Home";
-import About from "../About";
+import Profile from "../Profile";
 import Gallery from "../Gallery";
 import Signup from "../Signup";
 import Login from "../Login";
@@ -23,6 +23,7 @@ const Navbar = () => {
     useEffect(() => {
 
         const auth = getAuth();
+
         const unSubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
 
@@ -59,7 +60,7 @@ const Navbar = () => {
                 setIsSignup(true)
             })
             .catch((error) => {
-                console.log("signout failed");
+                console.log("signout failed :", error);
             });
     };
 
@@ -75,15 +76,16 @@ const Navbar = () => {
                         <nav>
                             <ul>
                                 <li><Link to={`/`}>Home</Link></li>
-                                <li><Link to={`/about`}>About</Link></li>
+                                <li><Link to={`/about`}>Profile</Link></li>
                                 <li><Link to={`/gallery`}>Gallery</Link></li>
                                 <li
                                     onClick={() => {
                                         setIsLogin(!isLogin)
                                     }}>
                                     <Link to={`/`}
+                                        className="logoutBtn"
                                         onClick={logoutFunction}
-                                    >Logout</Link></li>
+                                    > {fullName} Logout</Link></li>
                             </ul>
                         </nav>
                         :
@@ -113,7 +115,7 @@ const Navbar = () => {
 
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/about" element={<About />} />
+                        <Route path="/about" element={<Profile />} />
                         <Route path="/gallery" element={<Gallery />} />
                         <Route path="*" element={<Navigate to={`/`} replace={true} />} />
                     </Routes>

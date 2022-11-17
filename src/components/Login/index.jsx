@@ -6,7 +6,7 @@ import { useState } from "react";
 
 import { getAuth, signInWithEmailAndPassword, FacebookAuthProvider, signInWithPopup } from "firebase/auth";
 
-
+import {Button, TextField} from '@mui/material';
 
 
 
@@ -133,10 +133,11 @@ const Login = (props) => {
 
                 <div className="inputDiv">
                     <label htmlFor="email">Email : </label>
-                    <input
+                    <TextField
                         type="email"
-                        id="email"
-                        value={formik.values.email}
+                        id="outlined-email"
+                        label="Email"
+                       value={formik.values.email}
                         placeholder="Enter your Email :"
                         onChange={formik.handleChange}
                     />
@@ -146,9 +147,10 @@ const Login = (props) => {
 
                 <div className="inputDiv">
                     <label htmlFor="password">Password : </label>
-                    <input
+                    <TextField
                         type="password"
-                        id="password"
+                        id="outlined-password"
+                        label="Password"
                         value={formik.values.password}
                         placeholder="Enter your password :"
                         onChange={formik.handleChange}
@@ -158,9 +160,9 @@ const Login = (props) => {
                 </div>
 
 
-                <button type="submit">Login</button>
+                <Button varient="outline" type="submit">Login</Button>
             </form>
-            <button onClick={fbLoginHandler}>Login with Facebook</button>
+            <Button varient="outline" onClick={fbLoginHandler}>Login with Facebook</Button>
 
             {(isError) ?
                 <p className="fbError"> {loginError} </p>

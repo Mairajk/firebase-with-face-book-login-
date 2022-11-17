@@ -17,12 +17,16 @@ import {
     serverTimestamp,
     updateDoc,
     deleteDoc,
-    orderBy
+    orderBy,
+    where
 } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 
 
 const Home = () => {
+
+    const auth = getAuth();
 
     const db = getFirestore();
 
@@ -35,7 +39,7 @@ const Home = () => {
         editingText: ""
     });
 
-    const [postPic, setPostPic] = useState(undefined);
+    const [postPic, setPostPic] = useState(null);
 
 
     useEffect(() => {
@@ -60,7 +64,9 @@ const Home = () => {
 
         let getRealtimeData = async () => {
 
-            const q = query(collection(db, "posts"), orderBy("createdOn", "desc"));
+            const q = query(
+                collection(db, "posts"),
+                orderBy("createdOn", "desc"));
 
             unsubscribe = onSnapshot(q, (querySnapshot) => {
 
@@ -92,9 +98,29 @@ const Home = () => {
     const savePost = async (e) => {
         e.preventDefault();
 
-        // if (condition) {
 
-        // }
+        if (!postPic) {
+
+            try {
+                const docRef = await addDoc(collection(db, "posts"), {
+                    text: postText,
+                    user: auth.currentUser.email,
+                    createdOn: serverTimestamp(),
+
+                });
+                setPosting(!isPosting)
+
+                console.log("Document written with ID: ", docRef.id);
+            }
+            catch (e) {
+                console.error("Error adding document: ", e);
+            }
+            return;
+
+
+        }
+
+
 
         const cloudinaryData = new FormData();
         cloudinaryData.append("file", postPic);
@@ -112,6 +138,7 @@ const Home = () => {
 
                 console.log("postText : ", postText);
 
+
                 try {
                     const docRef = await addDoc(collection(db, "posts"), {
                         text: postText,
@@ -122,6 +149,9 @@ const Home = () => {
 
                     console.log("Document written with ID: ", docRef.id);
                 }
+
+
+
                 catch (e) {
                     console.error("Error adding document: ", e);
                 }
@@ -132,6 +162,7 @@ const Home = () => {
             .catch(err => {
                 console.log(err);
             })
+
     }
 
     const deletePost = async (postId) => {
