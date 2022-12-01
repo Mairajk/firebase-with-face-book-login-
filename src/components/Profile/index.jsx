@@ -1,4 +1,4 @@
-
+import "../Home/style.css"
 import { useEffect, useState } from "react";
 
 import moment from "moment";
@@ -112,70 +112,72 @@ const Profile = () => {
     }
 
     return (
-        <div className="postDiv">
+        <div className="main">
+            <div className="postDiv">
 
-            {posts.map((eachPost, i) => (
+                {posts.map((eachPost, i) => (
 
-                <div className="postCard" key={i} >
+                    <div className="postCard" key={i} >
 
-                    <div className="postHead">
+                        <div className="postHead">
 
-                        <p className="time">{moment((eachPost?.createdOn?.seconds) ?
-                            eachPost?.createdOn?.seconds * 1000 : undefined
-                        ).format('Do MMMM, h:mm a')}</p>
+                            <p className="time">{moment((eachPost?.createdOn?.seconds) ?
+                                eachPost?.createdOn?.seconds * 1000 : undefined
+                            ).format('Do MMMM, h:mm a')}</p>
 
-                        {(eachPost.id === editingData.editingId) ?
-                            <form className="postUpdateForm" onSubmit={updatePost}>
+                            {(eachPost.id === editingData.editingId) ?
+                                <form className="postUpdateForm" onSubmit={updatePost}>
 
-                                <textarea className="postUpdateInput" type="text"
-                                    autoFocus
-                                    value={editingData.editingText}
-                                    placeholder="Enter updates"
-                                    onChange={(e) => {
-                                        setEditingData({
-                                            ...editingData,
-                                            editingText: e.target.value
-                                        })
-                                    }} />
+                                    <textarea className="postUpdateInput" type="text"
+                                        autoFocus
+                                        value={editingData.editingText}
+                                        placeholder="Enter updates"
+                                        onChange={(e) => {
+                                            setEditingData({
+                                                ...editingData,
+                                                editingText: e.target.value
+                                            })
+                                        }} />
 
-                                <button type="submit" className="postUpdateBtn">Update</button>
+                                    <button type="submit" className="postUpdateBtn">Update</button>
 
-                            </form>
-                            :
-                            <h3 className="postTitle">  {eachPost.text} </h3>
-
-                        }
-                    </div>
-
-                    <img src={eachPost.image} alt="" className="postImage" />
-
-                    <div className="postFooter">
-                        <button className="dltBtn" onClick={() => {
-                            deletePost(eachPost?.id)
-                        }}>
-                            Delete
-                        </button>
-
-                        <button className="editBtn" onClick={() => {
-                            setEditingData((editingData.editingId === eachPost?.id) ?
-
-                                {
-                                    editingId: null,
-                                    editingText: ""
-                                }
+                                </form>
                                 :
-                                {
-                                    editingId: eachPost?.id,
-                                    editingText: eachPost?.text
-                                }
-                            )
-                        }}
-                        > {(editingData.editingId === eachPost?.id) ? "Cancel" : "Edit"
-                            } </button>
-                    </div>
-                </div>
-            ))}
+                                <h3 className="postTitle">  {eachPost.text} </h3>
 
+                            }
+                        </div>
+
+                        <img src={eachPost.image} alt="" className="postImage" />
+
+                        <div className="postFooter">
+                            <button className="dltBtn" onClick={() => {
+                                deletePost(eachPost?.id)
+                            }}>
+                                Delete
+                            </button>
+
+                            <button className="editBtn" onClick={() => {
+                                setEditingData((editingData.editingId === eachPost?.id) ?
+
+                                    {
+                                        editingId: null,
+                                        editingText: ""
+                                    }
+                                    :
+                                    {
+                                        editingId: eachPost?.id,
+                                        editingText: eachPost?.text
+                                    }
+                                )
+                            }}
+                            > {(editingData.editingId === eachPost?.id) ? "Cancel" : "Edit"
+                                } </button>
+                        </div>
+                    </div>
+                ))}
+
+            </div>
         </div>
     )
 

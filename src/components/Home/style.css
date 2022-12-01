@@ -1,10 +1,15 @@
 * {
+    /* all: unset; */
     margin: 0;
     padding: 0;
 }
 
 body {
     background-color: gainsboro;
+}
+
+.main {
+    margin-top: 100px;
 }
 
 .postCard {
@@ -36,7 +41,8 @@ body {
 
 }
 
-.postFooter>button {
+.postFooter .dltBtn,
+.editBtn {
     margin: 10px 10px 5px;
     width: 70px;
     padding: 10px;
@@ -48,13 +54,37 @@ body {
     color: whitesmoke;
 }
 
+
+.editBtn:hover {
+    width: 80px;
+    padding: 10px;
+    font-size: 18px;
+    box-shadow: 0px 0px 10px 10px lightseagreen;
+    background-color: white;
+    color: lightseagreen;
+    transition: 1s ease;
+
+}
+
+.dltBtn:hover {
+    width: 80px;
+    padding: 10px;
+    font-size: 18px;
+    box-shadow: 0px 0px 10px 10px lightseagreen;
+    background-color: white;
+    color: lightseagreen;
+    transition: 1s ease;
+
+}
+
 .postingDiv {
-    /* margin: 10px 0px; */
+    margin: 10px 0px;
     position: sticky;
     top: 100px;
     width: 100%;
     height: fit-content;
-    z-index: 1;
+    background-color: gainsboro;
+    /* z-index: -1; */
     padding: 5px 0px;
     /* background-color: whitesmoke; */
     display: flex;
@@ -62,74 +92,77 @@ body {
 }
 
 .postingForm {
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px 5px gray;
+    margin: 50px auto;
+    padding: 20px 40px;
+    width: 60%;
+    background-color: whitesmoke;
     height: 100%;
     padding: 10px;
-    width: 100%;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
+    align-items: stretch;
     justify-content: center;
 }
 
 .postingDiv textarea {
-    /* margin: 10px auto; */
+    margin: 0px auto;
     font-size: 18px;
     background-color: whitesmoke;
-    width: 100%;
+    width: 95%;
     height: 150px;
-    padding: 20px;
-    border-radius: 20px;
+    /* padding: 20px; */
     border: none;
-    box-shadow: 0px 0px 20px 5px gray;
     outline: none;
 }
 
 .inputArea {
-    margin: 10px auto;
-    width: 50%;
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    background-color: whitesmoke;
+    width: 100%;
 }
 
 .postPic {
-    padding: 10px 0px;
-    position: absolute;
-    display: flex;
-    justify-content: right;
-    border-radius: 10px;
-    outline: none;
-    color: aqua;
-    /* all: unset; */
-    /* width: 500px; */
-    /* z-index: 1; */
-    /* right: 0px; */
+    all: unset;
+    visibility: hidden;
 }
 
-.postPic input#file-upload-button {
-    display: none;
-    background-color: aqua;
+.imgIcon {
+    font-size: 50px;
+    transition: 0.5s ease-in-out;
+}
+
+.imgIcon:hover {
+    font-size: 70px;
+    border-radius: 10px;
+    box-shadow: -3px -3px 5px gainsboro;
 }
 
 .postingDiv .btnDiv {
-    width: 50%;
+    width: 95%;
     margin: 5px auto;
     display: flex;
-    justify-content: flex-end;
+    justify-content: right;
 }
 
 .postDiv {
     padding: 30px 0px;
+    /* margin-top: 200px; */
 }
 
 .postingBtn {
-    width: 70px;
+    /* all: unset; */
+    width: 100px;
     padding: 10px;
-    margin: 0px 50px;
+    margin: 10px auto;
     border-radius: 10px;
     border: 0px;
     background-color: lightseagreen;
-    font-size: 15px;
+    font-size: 25px;
     font-weight: bold;
     color: whitesmoke;
     backdrop-filter: blur(10px);
@@ -161,14 +194,34 @@ body {
 
 }
 
-button:hover {
+
+.shareBtn:is(:hover, :focus) {
     width: 80px;
     padding: 10px;
     font-size: 18px;
     box-shadow: 0px 0px 10px 10px lightseagreen;
     background-color: white;
     color: lightseagreen;
-    /* background: linear-gradient( to right , white ,lightseagreen); */
+    transition: 1s ease;
+}
+
+.postUpdateBtn:is(:hover, :focus) {
+    width: 80px;
+    padding: 10px;
+    font-size: 18px;
+    box-shadow: 0px 0px 10px 10px lightseagreen;
+    background-color: white;
+    color: lightseagreen;
+    transition: 1s ease;
+}
+
+.postingBtn:is(:hover) {
+    width: 90%;
+    padding: 10px;
+    font-size: 30px;
+    box-shadow: 0px 0px 10px 5px lightseagreen;
+    background-color: white;
+    color: lightseagreen;
     transition: 1s ease;
 }
 
@@ -188,14 +241,14 @@ button:hover {
 
 .postUpdateForm {
     width: 100%;
+    margin-top: 15px;
 }
 
 .postCard textarea {
     margin: 10px auto;
     font-size: 18px;
     background-color: whitesmoke;
-    width: 50%;
-    min-width: 30%;
+    width: 80%;
     max-width: 70%;
     max-height: 450px;
     min-height: 100px;
@@ -212,6 +265,13 @@ button:hover {
     width: 100%;
 }
 
+.imgLabel {
+    display: flex;
+    justify-content: right;
+    width: 95%;
+    height: fit-content;
+}
+
 nav {
     margin: 0px 40px;
     padding: 20px 0px;
@@ -222,7 +282,7 @@ nav {
 nav ul {
     display: flex;
     justify-content: center;
-
+    align-items: center;
 }
 
 nav li {
@@ -231,18 +291,58 @@ nav li {
 }
 
 nav li a {
+    color: lightseagreen;
     text-decoration: none;
     font-size: 22px;
-    color: lightseagreen;
     padding: 2px 10px;
     text-align: center;
 }
 
-nav li a:is(:hover, :focus) {
+.logout {
+    all: unset;
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightseagreen;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 30px;
+    transition: 1s ease-in-out;
+}
+
+.logout:hover {
+    background-color: white;
+    border: 2px lightseagreen;
+    color: lightseagreen;
+    fill: lightseagreen;
+
+}
+
+.logoutIcon {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    font-size: 40px;
+    color: red;
+    /* color: white; */
+}
+
+.logout img {
+    border-radius: 50%;
+    border: 2px solid lightseagreen;
+    margin-right: 5px;
+}
+
+nav li a:is(:hover, :focus, :active) {
     border-bottom: 2px solid lightseagreen;
     /* color: black; */
 }
 
+.userName {
+    font-size: 20px;
+    font-weight: 500;
+}
 
 .header {
     width: 100%;
@@ -250,8 +350,9 @@ nav li a:is(:hover, :focus) {
     justify-content: space-between;
     align-items: center;
     /* padding: 10px 30px; */
+    margin-bottom: 50px;
     background-color: whitesmoke;
-    position: sticky;
+    position: fixed;
     top: 0px;
 }
 

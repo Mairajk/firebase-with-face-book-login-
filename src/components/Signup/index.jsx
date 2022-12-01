@@ -1,3 +1,5 @@
+import "../Login/style.css"
+
 import { useFormik } from "formik"
 import * as yup from 'yup';
 
@@ -108,7 +110,7 @@ const Signup = (props) => {
 
         <div className="formDiv">
 
-            <h1> Signup </h1>
+            <h2> Signup </h2>
             <form onSubmit={formik.handleSubmit}>
                 <div className="inputDiv">
                     <label htmlFor="fullName">Full Name : </label>

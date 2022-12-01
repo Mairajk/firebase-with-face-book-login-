@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 import { Routes, Route, Link, Navigate } from "react-router-dom";
 
+import { GoSignOut } from "react-icons/go";
+
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 
@@ -17,6 +19,8 @@ const Navbar = () => {
     const [isLogin, setIsLogin] = useState(false);
     const [isSignup, setIsSignup] = useState(true);
     const [fullName, setFullName] = useState("");
+    const [photoURL, setPhotoURL] = useState("");
+
 
 
 
@@ -32,8 +36,10 @@ const Navbar = () => {
                 const uid = user.uid;
                 console.log("auth change: login", user);
 
-                console.log("auth.currentUser: ", auth.currentUser.displayName);
-                setFullName(auth.currentUser.displayName)
+                console.log("auth.currentUser: ", auth.currentUser);
+                console.log("auth.currentUser.photoUrl: ", auth.currentUser.photoURL);
+                setFullName(auth.currentUser.displayName);
+                setPhotoURL(auth.currentUser.photoURL);
 
 
             } else {
@@ -79,13 +85,19 @@ const Navbar = () => {
                                 <li><Link to={`/about`}>Profile</Link></li>
                                 <li><Link to={`/gallery`}>Gallery</Link></li>
                                 <li
-                                    onClick={() => {
-                                        setIsLogin(!isLogin)
-                                    }}>
+                                    className="logout"
+                                // onClick={() => {
+                                //     setIsLogin(!isLogin)
+                                // }}
+                                >
+                                    <img src={photoURL} alt="" className="profilePhoto" />
+                                    <span className="userName">{fullName}</span>
                                     <Link to={`/`}
                                         className="logoutBtn"
                                         onClick={logoutFunction}
-                                    > {fullName} Logout</Link></li>
+                                    >   <i> <GoSignOut className="logoutIcon" /></i>
+                                    </Link>
+                                </li>
                             </ul>
                         </nav>
                         :

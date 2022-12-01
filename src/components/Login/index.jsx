@@ -1,3 +1,5 @@
+import "./style.css"
+
 import { useFormik } from "formik"
 import * as yup from 'yup';
 
@@ -127,13 +129,13 @@ const Login = (props) => {
     return (
         <div className="loginPage">
 
-            <h1> Login </h1>
+            <h2> Login </h2>
 
             <form onSubmit={formik.handleSubmit}>
 
                 <div className="inputDiv">
                     <label htmlFor="email">Email : </label>
-                    <TextField
+                    <input
                         type="email"
                         id="outlined-email"
                         label="Email"
@@ -147,7 +149,7 @@ const Login = (props) => {
 
                 <div className="inputDiv">
                     <label htmlFor="password">Password : </label>
-                    <TextField
+                    <input
                         type="password"
                         id="outlined-password"
                         label="Password"
@@ -159,10 +161,12 @@ const Login = (props) => {
                         <p className="inputError">{formik.errors.password}</p> : <p className="inputError"></p>}
                 </div>
 
+                <div className="btnDiv">
+                    <button className="loginBtns" type="submit">Login</button>
+                </div>
+                <button className="loginBtns" onClick={fbLoginHandler}>Login with Facebook</button>
 
-                <Button varient="outline" type="submit">Login</Button>
             </form>
-            <Button varient="outline" onClick={fbLoginHandler}>Login with Facebook</Button>
 
             {(isError) ?
                 <p className="fbError"> {loginError} </p>

@@ -5,6 +5,8 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import axios from "axios"
 
+import { FcAddImage } from "react-icons/fc";
+
 import { initializeApp } from "firebase/app";
 import {
     getFirestore,
@@ -200,6 +202,15 @@ const Home = () => {
                     <form action="" className="postingForm" onSubmit={savePost}>
 
                         <div className="inputArea">
+
+                            <label htmlFor="postPic" className="imgLabel">
+                                <input id="postPic" type="file"
+                                    className="postPic"
+                                    onChange={(e) => {
+                                        setPostPic(e.currentTarget.files[0])
+                                    }}
+                                /> <FcAddImage className="imgIcon" />
+                            </label>
                             <textarea
                                 className="postInput"
                                 autoFocus
@@ -209,15 +220,8 @@ const Home = () => {
                                 onChange={(e) => {
                                     setPostText(e.target.value)
                                 }}
-
                             />
 
-                            <input type="file"
-                                className="postPic"
-                                onChange={(e) => {
-                                    setPostPic(e.currentTarget.files[0])
-                                }}
-                            />
                         </div>
 
                         <div className="btnDiv">
